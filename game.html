@@ -13,156 +13,18 @@
 	</style>
 </head>
 <body>
-<canvas id="canvas" width="300" height="500"></canvas>
+<canvas id="canvas" width="288" height="512"></canvas>
 <script src="Functions.js"></script>
-<script src="TGame.js"></script>
 <script src="Element.js"></script>
+<script src="TGame.js"></script>
 <script>
-	/*
-	var imgFormPath = function ( path ) {
-		var img = new Image()
-		img.src = path
-
-		return img
-	}
-	var img_source = {}
-	img_source.bg_day = {
-		x: 0,
-		y: 0,
-		end_x: 288,
-		end_y: 512,
-	}
-	img_source.get_start = {
-		x: 589,
-		y: 117,
-		end_x: 777,
-		end_y: 170,
-	}
-	img_source.tip = {
-		x: 584,
-		y: 182,
-		end_x: 699,
-		end_y: 281,
-	}
-
-	var canvas = document.querySelector("#canvas"),
-		context = canvas.getContext('2d')
-	var img = imgFormPath( "imgs/atlas.png" )
-		_img = imgFormPath( "imgs/atlas.png" )
-
-	img.onload = function () {
-		bg_day = img_source.bg_day
-		get_start = img_source.get_start
-		tip = img_source.tip
-
-		context.drawImage(
-			img,
-			0,
-			0,
-			bg_day.end_x,
-			bg_day.end_y,
-			0,
-			0,
-			canvas.width,
-			canvas.height,
-		)
-		context.drawImage(
-			img,
-			get_start.x,
-			get_start.y,
-			get_start.end_x - get_start.x,
-			get_start.end_y - get_start.y,
-			0.1*canvas.width,
-			0.2*canvas.height,
-			(get_start.end_x - get_start.x)*1.3,
-			(get_start.end_y - get_start.y)*1.3,
-		)
-		context.drawImage(
-			img,
-			tip.x,
-			tip.y,
-			tip.end_x - tip.x,
-			tip.end_y - tip.y,
-			0.1*canvas.width,
-			0.5*canvas.height,
-			(tip.end_x - tip.x)*1.3,
-			(tip.end_y - tip.y)*1.3,
-		)
-	}
-	_img.onload = function () {
-		bg_day = img_source.bg_day
-		context.drawImage(
-			img,
-			0,
-			0,
-			bg_day.end_x,
-			bg_day.end_y,
-			canvas.width,
-			0,
-			canvas.width,
-			canvas.height,
-		)
-	}
-	//背景移动
-	var speed = 2,
-		x = 0
-	setInterval(function () {
-		x -= speed
-		if (x <= -canvas.width)
-			x = 0
-		bg_day = img_source.bg_day
-		get_start = img_source.get_start
-		context.clearRect(0,0,canvas.width, canvas.height)
-		context.drawImage(
-			img,
-			0,
-			0,
-			bg_day.end_x,
-			bg_day.end_y,
-			x,
-			0,
-			canvas.width,
-			canvas.height,
-		)
-		context.drawImage(
-			_img,
-			0,
-			0,
-			bg_day.end_x,
-			bg_day.end_y,
-			canvas.width+x,
-			0,
-			canvas.width,
-			canvas.height,
-		)
-		context.drawImage(
-			img,
-			get_start.x,
-			get_start.y,
-			get_start.end_x - get_start.x,
-			get_start.end_y - get_start.y,
-			0.1*canvas.width,
-			0.2*canvas.height,
-			(get_start.end_x - get_start.x)*1.3,
-			(get_start.end_y - get_start.y)*1.3,
-		)
-		context.drawImage(
-			img,
-			tip.x,
-			tip.y,
-			tip.end_x - tip.x,
-			tip.end_y - tip.y,
-			(canvas.width-(tip.end_x - tip.x)*1.2)/2,
-			0.5*canvas.height,
-			(tip.end_x - tip.x)*1.2,
-			(tip.end_y - tip.y)*1.2,
-		)
-	}, 1000/60)
-	*/
-
 	var game = new TGame("canvas")
-	var bg_day = new Element("canvas", game.__src.pos.bg_day)
-	bg_day.draw()
+
+	game.render()
+	document.onclick = function () {
+		game.start()
+	}
+
 </script>
 </body>
 </html>
